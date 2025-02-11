@@ -1,0 +1,13 @@
+name: tree-child-orientation
+channels:
+  - conda-forge
+dependencies:
+  - pip
+  - python
+  - pip:
+    - phyloroot
+    - numpy
+    - networkx
+    - matplotlib
+    - networkx
+    - scipy

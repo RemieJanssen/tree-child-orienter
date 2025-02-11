@@ -1,6 +1,6 @@
 # Tree-Child Orienter: Algorithms for Orienting Undirected Binary Phylogenetic Networks to a Desired Class
 
-This repository contains the implementation of algorithms to determine whether a given undirected binary phylogenetic network can be oriented to a directed phylogenetic network of a desired class C, in particular, the class of tree-child networks, and to find a tree-child orientation of the graph if one exists. The main focus is on our practical exponential algorithm for solving the C-Orientation problem, adapted to the tree-child orientation problem as `TC-orientation` (Algorithm 1 in our paper). We have implemented this algorithm along with an existing exact exponential-time algorithm for C-Orientation, `TC-orientation-bruteforce` ([Algorithm 2 in Huber et al 2024](https://doi.org/10.1016/j.jcss.2023.103480)), and a heuristic method we developed specifically for the tree-child orientation problem, `TC-orientation-heuristic` (Algorithm 2 in our paper). We conducted performance comparison experiments to evaluate the accuracy and computation time of these algorithms. The repository also contains a program to generate undirected binary phylogenetic networks for the experiments. 
+This repository contains the implementation of algorithms to determine whether a given undirected binary phylogenetic network can be oriented to a directed phylogenetic network of a desired class C, in particular, the class of tree-child networks, and to find a tree-child orientation of the graph if one exists. The main focus is on our practical exponential algorithm for solving the C-Orientation problem, adapted to the tree-child orientation problem as `TC-orientation` (Algorithm 1 in our paper). We have implemented this algorithm along with an existing exact exponential-time algorithm for C-Orientation, `TC-orientation-bruteforce` ([Algorithm 2 in Huber et al 2024](https://doi.org/10.1016/j.jcss.2023.103480)), and a heuristic method we developed specifically for the tree-child orientation problem, `TC-orientation-heuristic` (Algorithm 2 in our paper). We conducted performance comparison experiments to evaluate the accuracy and computation time of these algorithms. The repository also contains a program to generate undirected binary phylogenetic networks for the experiments.
 
 This repository serves as the supporting material for the paper:
 
@@ -32,12 +32,12 @@ To run the program of TC-orientation-heuristic, use:
 ```
 python TC-orientation-heuristic.py
 ```
-and follow the instructions in tutorial.  
+and follow the instructions in tutorial.
 To run the program of TC-orientation, use:
 ```
 python TC-orientation.py
 ```
-and follow the instructions in tutorial.  
+and follow the instructions in tutorial.
 To run the program of of TC-orientation-bruteforce-huber2024, use:
 ```
 python TC-orientation-bruteforce-huber2024.py
@@ -54,9 +54,11 @@ To run this project, you may require the following packages:
 + csv
 + itertools
 + time
++ scipy
++ phyloroot
 
 ### Tutorial
-When you run the code, you will be prompted for a file name of the input. The input must be a CSV file representing the adjacency matrix of an undirected binary phylogenetic network. Here, we demonstrate the code using `sample-input.csv`, so we enter 'sample-input' (without the extension). Then, you will get the results as follows. In the case when the input network is tree-child orientable, the program will also output a visualisation of its tree-child orientation in PDF format (see `sample-output.pdf`). 
+When you run the code, you will be prompted for a file name of the input. The input must be a CSV file representing the adjacency matrix of an undirected binary phylogenetic network. Here, we demonstrate the code using `sample-input.csv`, so we enter 'sample-input' (without the extension). Then, you will get the results as follows. In the case when the input network is tree-child orientable, the program will also output a visualisation of its tree-child orientation in PDF format (see `sample-output.pdf`).
 ```
 File Name: sample-input
 Elapsed time: 0.274124104 [sec]
@@ -73,7 +75,7 @@ TC-Orientability: YES
     ```
     - Save output graph to
     ```python
-    plt.savefig('/path/to/your/output/directory/' + filename + '.pdf', format='pdf') 
+    plt.savefig('/path/to/your/output/directory/' + filename + '.pdf', format='pdf')
     ```
 
 ## License

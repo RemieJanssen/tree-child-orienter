@@ -1,5 +1,5 @@
 directories, files = glob_wildcards("data/{dir}/{file}.csv")
-directories, files = glob_wildcards("data/leaf_n10_experiment1/{dir}/{file}.csv")
+# directories, files = glob_wildcards("data/leaf_n10_experiment1/{dir}/{file}.csv")
 # directories, files = glob_wildcards("data/leaf_n10_experiment1/leaf_n10_reticulation_r2/{dir}/{file}.csv")
 paths = [d+"/"+f for d,f in zip(directories, files)]
 
@@ -25,7 +25,7 @@ rule experiment:
     threads:
         1
     input:
-        "data/leaf_n10_experiment1/{path}.csv"
+        "data/{path}.csv"
     output:
         "results_raw/{path}_{algo}"
     shell:

@@ -79,4 +79,4 @@ if __name__ == "__main__":
     print(out_string)
     if cmd_args.output:
         with open(cmd_args.output, "w+") as f:
-            f.write(f"{cmd_args.file},{cmd_args.algorithm},{elapsed_time},{orientable}")
+            f.write(f"{cmd_args.file},{cmd_args.algorithm},{elapsed_time},{orientable}\r\n")

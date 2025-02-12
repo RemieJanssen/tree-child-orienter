@@ -9,6 +9,7 @@ from algorithms.TC_orientation_bruteforce_huber2024 import tree_child_orient_hub
 from algorithms.TC_orientation_fpt_huber2024 import tree_child_orient_huber_fpt_phyloroot
 from algorithms.TC_orientation_heuristic import tree_child_orient_heuristic
 from algorithms.TC_orientation import tree_child_orient
+from algorithms.TC_orientation_hybrid import tree_child_orient_hybrid
 
 def start():
     global start_time
@@ -71,6 +72,7 @@ if __name__ == "__main__":
         "HFPT": tree_child_orient_huber_fpt_phyloroot,
         "H": tree_child_orient_heuristic,
         "N": tree_child_orient,
+        "Hyb": tree_child_orient_hybrid,
     }
     elapsed_time, orientable = experiment(cmd_args.file, algo_dict[cmd_args.algorithm])
     out_string = f"elapsed time: {elapsed_time}, orientable: {orientable}"

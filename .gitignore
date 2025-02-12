@@ -1,0 +1,4 @@
+results_raw/
+*.pyc
+log/
+.snakemake/

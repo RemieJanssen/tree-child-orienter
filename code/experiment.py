@@ -25,7 +25,7 @@ def end(tag="Elapsed time"):
 # Function readcsv
 def readcsv(filename):
     distance_matrix = []
-    with open(filename + '.csv', 'r', encoding='utf-8') as file:
+    with open(filename, 'r', encoding='utf-8') as file:
         csv_reader = csv.reader(file, delimiter=',')  # Specify the delimiter
         for row in csv_reader:
             row = [float(value) for value in row]
@@ -77,4 +77,4 @@ if __name__ == "__main__":
     print(out_string)
     if cmd_args.output:
         with open(cmd_args.output, "w+") as f:
-            f.write(out_string)
+            f.write(f"{cmd_args.file},{cmd_args.algorithm},{elapsed_time},{orientable}")

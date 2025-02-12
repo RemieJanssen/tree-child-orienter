@@ -57,6 +57,19 @@ To run this project, you may require the following packages:
 + scipy
 + phyloroot
 
+You can install these with conda with:
+```
+conda env update -f ./conda/tree-child-orienter.source.yaml
+```
+
+### Experiments
+
+The full set of experiments can be run with snakemake
+```
+snakemake --profile default_lsf
+```
+
+
 ### Tutorial
 When you run the code, you will be prompted for a file name of the input. The input must be a CSV file representing the adjacency matrix of an undirected binary phylogenetic network. Here, we demonstrate the code using `sample-input.csv`, so we enter 'sample-input' (without the extension). Then, you will get the results as follows. In the case when the input network is tree-child orientable, the program will also output a visualisation of its tree-child orientation in PDF format (see `sample-output.pdf`).
 ```

@@ -59,7 +59,7 @@ def cmd_parser():
     parser.add_argument(
         "-a",
         "--algorithm",
-        help="An algorithm, choose from: HSP (Huber stupid phyloroot), HS (Huber stupid), HFPT (Huber FPT), H (Heuristic), and N (New).",
+        help="An algorithm, choose from: HSP (Huber stupid phyloroot), HS (Huber stupid), HFPT (Huber FPT), H (Heuristic), N (New), and hybrid N and HFPT (NFPT)",
     )
     return parser.parse_args()
 
@@ -72,7 +72,7 @@ if __name__ == "__main__":
         "HFPT": tree_child_orient_huber_fpt_phyloroot,
         "H": tree_child_orient_heuristic,
         "N": tree_child_orient,
-        "Hyb": tree_child_orient_hybrid,
+        "NFPT": tree_child_orient_hybrid,
     }
     elapsed_time, orientable = experiment(cmd_args.file, algo_dict[cmd_args.algorithm])
     out_string = f"elapsed time: {elapsed_time}, orientable: {orientable}"

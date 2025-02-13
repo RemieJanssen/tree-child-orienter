@@ -9,10 +9,8 @@ from unittest import mock
 def NewRootAtEdge(network,rootEdge,min_cycle,ClassChecker=ClassAllNetworks):
     noOfReticulations = len(network.edges)-len(network.nodes)+1
 
-    # Array to store one selection of vertices from each minimal cycle
-    r_set = list(itertools.product(*min_cycle))
-
-    for reticulations in r_set:
+    # Select one vertex from each minimal cycle
+    for reticulations in itertools.product(*min_cycle):
         set_of_reticulations = set(reticulations)
         if len(set_of_reticulations) != noOfReticulations:
           continue

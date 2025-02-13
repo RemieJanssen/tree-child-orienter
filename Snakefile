@@ -12,7 +12,7 @@ rule aggregate:
         1
     input:
         expand("results_raw/{path}_{algo}",
-               path=paths, algo=["H", "Hyb", "HSP", "HFPT", "N"]) # no HS because it is somehow very slow...
+               path=paths, algo=["H", "NFPT", "HSP", "HFPT", "N"]) # no HS because it is somehow very slow...
     output:
         "aggregated.txt"
     shell:

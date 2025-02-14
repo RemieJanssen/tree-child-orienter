@@ -33,7 +33,7 @@ def readcsv(filename):
 def properties(filename):
     G = readcsv(filename)
     blobs = blob_properties(G)
-    level = max([blob[1] for blob in blobs])
+    level = max([blob[1] for blob in blobs]) if blobs else 0
     number_of_blobs = len(blobs)
     properties = {
         "number_of_nodes": len(G.nodes),
@@ -67,7 +67,8 @@ def cmd_parser():
 if __name__ == "__main__":
     cmd_args = cmd_parser()
     graph_properties = properties(cmd_args.file)
-    print(graph_properties)
+    out_print = f"{cmd_args.file},{graph_properties["number_of_nodes"]},{graph_properties["number_of_edges"]},{graph_properties["number_of_reticulations"]},{graph_properties["level"]},{graph_properties["number_of_blobs"]},{"|".join([f"{blob[0]};{blob[1]}" for blob in graph_properties["blob_properties"]])}\r\n"
+    print(out_print)
     if cmd_args.output:
         with open(cmd_args.output, "w+") as f:
-            f.write(f"{graph_properties}\r\n")
+            f.write(out_print)

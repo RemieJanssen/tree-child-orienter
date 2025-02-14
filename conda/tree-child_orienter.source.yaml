@@ -9,7 +9,6 @@ dependencies:
   - pip:
     - phyloroot
     - numpy
-    - networkx
     - matplotlib
     - networkx
     - scipy

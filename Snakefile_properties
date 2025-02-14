@@ -1,0 +1,31 @@
+directories, files = glob_wildcards("data/{dir}/{file}.csv")
+# directories, files = glob_wildcards("data/leaf_n10_experiment1/{dir}/{file}.csv")
+# directories, files = glob_wildcards("data/leaf_n10_experiment1/leaf_n10_reticulation_r2/{dir}/{file}.csv")
+paths = [d+"/"+f for d,f in zip(directories, files)]
+
+
+rule aggregate_properties:
+    resources:
+        runtime_min=10,
+        mem_mb=1000
+    threads:
+        1
+    input:
+        expand("results_properties/{path}", path=paths)
+    output:
+        "aggregated_properties.csv"
+    shell:
+        "cat {input} >> results_raw/aggregated_properties.csv"
+
+rule properties:
+    resources:
+        runtime_min=5,
+        mem_mb=2000
+    threads:
+        1
+    input:
+        "data/{path}.csv"
+    output:
+        "results_properties/{path}"
+    shell:
+        "python code/properties.py -f {input} -o {output}"

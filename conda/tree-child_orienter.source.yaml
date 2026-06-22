@@ -1,0 +1,14 @@
+name: tree-child-orientation
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - pip
+  - python
+  - snakemake<8
+  - pip:
+    - phyloroot
+    - numpy
+    - matplotlib
+    - networkx
+    - scipy

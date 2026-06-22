@@ -1,0 +1,5 @@
+results_raw/
+results_properties/
+*.pyc
+log/
+.snakemake/
